@@ -44,9 +44,15 @@ const Game = (function() {
     // on met le tour au joueur X de jouer
 
     toPlay = 0;
+    Gameboard.hasNoWinner = true;
+    Gameboard.isNotComplete = true;
     Gameboard.gridArray = ["", "", "", "", "", "", "", "", ""];
-    Gameboard.gridFields.forEach((field) => {field.textContent = ""})
+    Gameboard.gridFields.forEach((field) => {
+        field.textContent = "";
+        field.style.color = "white";
+    });
     output.textContent = `Player ${players[toPlay].sign}'s to play`;
+    output.style.color = "white";
   }
   
   const init = () => {
@@ -58,6 +64,7 @@ const Game = (function() {
   const positionCheck = () => {
     // À la fin de chaque tour, on vérifie la position (et on met à jour l'état du jeu)
 
+    let winScheme = [];
     const possibleWins = [
         [0, 1, 2],
         [3, 4, 5],
@@ -71,10 +78,20 @@ const Game = (function() {
     
     if (possibleWins.some((possibleWin) => {
         console.log(players[toPlay].sign);
-        return possibleWin.every(field => Gameboard.gridArray[field] === players[toPlay].sign); 
+        if (possibleWin.every(field => Gameboard.gridArray[field] === players[toPlay].sign)) {
+            winScheme = possibleWin;
+            return true;
+        }
     })) {
         Gameboard.hasNoWinner = false;
+        output.style.color = "rgb(99, 93, 199)";
         output.textContent = `Winner is... Player ${players[toPlay].sign}!`;
+
+        winScheme.forEach((fieldNumber) => {
+            Gameboard.gridFields[fieldNumber]
+                .style
+                .color = "rgb(99, 93, 199)";
+        })
         return false;
     } 
 

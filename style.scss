@@ -17,6 +17,11 @@ $main-font: "Montserrat";
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     color: $main-color;
     background: $main-bg-color;
@@ -30,7 +35,7 @@ header {
     grid-row: 1 / 2;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 40px;
     font-size: 2rem;
 }
 
@@ -40,6 +45,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
 
     .output {
         font-size: 2rem;
@@ -77,9 +83,34 @@ main {
             
         }
     }
+
+    .restart-button {
+        background-color: $highlight-bg-color;
+        font-family: inherit;
+        color: inherit;
+        font-size: 2rem;
+        padding: 15px 30px;
+        border-radius: 25px;
+        border: none;
+        border-bottom: 5px solid white;
+        outline-bottom: 2px solid black;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            border-bottom: 1px solid white;
+        }
+    }
 }
 
 footer {
     grid-row: 3 / 4;
-    height: 100px;
+    height: 200px;
+    padding: 50px 0 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
