@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,400&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  color: white;
+  background: #21222d;
+  font-family: "Montserrat";
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh; }
+
+header {
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 2rem; }
+
+main {
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  main .output {
+    font-size: 2rem;
+    padding-top: 30px; }
+  main .grid {
+    width: 500px;
+    height: 500px;
+    padding: 25px;
+    border-radius: 10px;
+    background: #2c2c37;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; }
+    main .grid .field {
+      font-size: 110px;
+      text-align: center; }
+      main .grid .field.borleft {
+        border-left: 10px solid #21222d; }
+      main .grid .field.borbottom {
+        border-bottom: 10px solid #21222d; }
+      main .grid .field:hover {
+        background: rgba(99, 93, 199, 0.1);
+        cursor: pointer; }
+
+footer {
+  grid-row: 3 / 4;
+  height: 100px; }
+
+/*# sourceMappingURL=style.css.map */

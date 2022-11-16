@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,400&display=swap');
+
+$main-color: rgb(255, 255, 255);
+$second-color: rgb(123, 128, 140);
+$main-bg-color: rgb(33, 34, 45);
+$second-bg-color: rgb(44, 44, 55);
+$highlight-bg-color: rgb(99, 93, 199);
+$highlight-bg-color-less: rgba(99, 93, 199, .1);
+$title-font: "Montserrat";
+$main-font: "Montserrat";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $main-color;
+    background: $main-bg-color;
+    font-family: $title-font;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    font-size: 2rem;
+}
+
+main {
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .output {
+        font-size: 2rem;
+        padding-top: 30px;
+    }
+
+    .grid {
+        width: 500px;
+        height: 500px;
+        padding: 25px;
+        border-radius: 10px;
+        background: $second-bg-color;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .field {
+
+            font-size: 110px;
+            text-align: center;
+
+            &.borleft {
+                border-left: 10px solid $main-bg-color; 
+            }
+
+            &.borbottom {
+                border-bottom: 10px solid $main-bg-color;
+            }
+
+            &:hover {
+                background: $highlight-bg-color-less;
+                cursor: pointer;
+            }
+            
+        }
+    }
+}
+
+footer {
+    grid-row: 3 / 4;
+    height: 100px;
+}
